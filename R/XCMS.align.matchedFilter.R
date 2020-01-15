@@ -5,7 +5,7 @@ minfrac.val=0.5, minsamp.val=2, mzwid.val=0.25, sleep.val=0, run.order.file=NA,s
 
         setwd(cdfloc)
         dir.create(XCMS.outloc,showWarnings=FALSE)
-        cdf_files=list.files(cdfloc,".cdf|.mzxml|mXML",ignore.case=TRUE)
+        cdf_files=list.files(cdfloc,".cdf|.mzxml|.mXML|.mzML|.mzml",ignore.case=TRUE)
 	aligned_data_list=new("list")
 	pcount=1
 	
