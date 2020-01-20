@@ -119,8 +119,8 @@ xMSanalyzer.outloc=apLCMS.outloc,plotvenn=FALSE)
 					time.list=finalfeatmat$time[c((overlap_res$index.A))]
 					mz.list=finalfeatmat$mz[c((overlap_res$index.A))]
 					chem.names<-stddata$Name[c((overlap_res$index.B))]
-					custom.EIC.plot(aligned, rows = c((overlap_res$index.A)), colors = NA, transform = "none", 
-						subset = rand_set, mz.list=mz.list, time.list=time.list,chem.names=chem.names,min.run=runval,min.pres=presval, max.spline.time.points = 1000) 
+					#custom.EIC.plot(aligned, rows = c((overlap_res$index.A)), colors = NA, transform = "none", 
+					#	subset = rand_set, mz.list=mz.list, time.list=time.list,chem.names=chem.names,min.run=runval,min.pres=presval, max.spline.time.points = 1000) 
 				}
 				dev.off()
 			}
