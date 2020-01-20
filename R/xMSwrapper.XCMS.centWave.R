@@ -122,7 +122,7 @@ dir.create(XCMS.outloc,showWarnings=FALSE)
 			#step.list,max,minfrac.val, minsamp.val, mzwid.val, sleep.val, run.order.file,subs, retcor.method,retcor.family, retcor.plottype, peakwidth)
 
 data_rpd_all<-XCMS.align.centWave(cdfloc, XCMS.outloc,ppm.list=ppm.list, mz.diff.list=mz.diff.list, sn.thresh.list=sn.thresh.list, prefilter.list=prefilter.list, bw.val=bw.val,groupval.method=groupval.method, 
-step.list=step.list,max=max,minfrac.val=minfrac.val, minsamp.val=minsamp.val, mzwid.val=mzwid.val, sleep.val=sleep.val, run.order.file,subs, retcor.method=retcor.method,retcor.family=retcor.family, retcor.plottype=retcor.plottype, peakwidth=peakwidth,target.mz.list=stddata)
+step.list=step.list,max=max,minfrac.val=minfrac.val, minsamp.val=minsamp.val, mzwid.val=mzwid.val, sleep.val=sleep.val, run.order.file,subs, retcor.method=retcor.method,retcor.family=retcor.family, retcor.plottype=retcor.plottype, peakwidth=peakwidth,target.mz.list=stddata, nSlaves=numnodes)
 
                        
                 }
