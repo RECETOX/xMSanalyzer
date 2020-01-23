@@ -67,7 +67,7 @@ aligned<-semi.sup(folder=cdfloc, known.table = known_table, match.tol.ppm = matc
 			save(aligned,file=fname)
 
 					
-			if(is.na(target.mz.list)==FALSE){
+			if(!anyNA(target.mz.list)) {
 			
 			eic_fname<-paste(apLCMS.outloc,"/EICrun",runval,"pres",presval,".pdf",sep="")
 			
