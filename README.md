@@ -5,3 +5,6 @@ This is a fork of [kuppal2/xMSanalyzer](https://github.com/kuppal2/xMSanalyzer) 
 ## Dockerfile
 The [base docker image](https://hub.docker.com/r/recetox/aplcms/tags) is a containerized version of [apLCMS](https://github.com/tianwei-yu/apLCMS).
 Additional layers install the dependencies for xMSanalyzer from [CRAN](https://cran.r-project.org/) and [bioconductor](https://bioconductor.org/).
+
+## Example Usage
+An example file is found in [Example](./example/README.md)
