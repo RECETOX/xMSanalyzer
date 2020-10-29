@@ -46,7 +46,7 @@ charge_type="pos"
 #########################################END of Input parameters##########################################################
 
 # 7) Other parameters
-num_nodes <- 6
+num_nodes <- 8
 num_replicates <- 2
 
 ######## xMSanalyzer usage##################
