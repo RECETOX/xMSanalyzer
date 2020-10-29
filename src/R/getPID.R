@@ -3,8 +3,6 @@ getPID <- function(
                    alignment.tool,
                    missingvalue,
                    numreplicates) {
-  mean_replicate_difference <- {}
-  sd_range_duplicate_pairs <- {}
 
   if (alignment.tool == "apLCMS") {
     col_end <- 4

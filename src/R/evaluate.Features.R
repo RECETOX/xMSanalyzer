@@ -7,12 +7,12 @@ evaluate.Features <- function(
                               missingvalue = 0) {
   if (numreplicates == 2) {
     print("**calculating percent intensity difference**")
-    eval.feat.results <- getPID(curdata, alignment.tool, missingvalue, numreplicates)
+    eval.feat.results <- apLCMS::getPID(curdata, alignment.tool, missingvalue, numreplicates)
   }
   else {
     if (numreplicates > 2) {
       print("**calculating CV**")
-      eval.feat.results <- getCVreplicates(curdata, alignment.tool, min.samp.percent = 0.6, numreplicates, impute.bool, missingvalue)
+      eval.feat.results <- apLCMS::getCVreplicates(curdata, alignment.tool, min.samp.percent = 0.6, numreplicates, impute.bool, missingvalue)
     }
   }
   return(eval.feat.results)
