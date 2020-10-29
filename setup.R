@@ -17,4 +17,7 @@ setup <- function(source_dir) {
 
     files <- list.files(pattern = "*.R")
     lapply(files, source)
+
+    data(example_target_list_pos)
+    data(example_target_list_neg)
 }
