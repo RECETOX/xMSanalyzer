@@ -10,7 +10,7 @@ data(example_target_list_neg)
 # Note: set cdfloc=NA if the cdf files are already aligned using apLCMS and the results
 # exist in apLCMS.outloc
 
-cdfloc <- "C:\\Users\\473355\\Data\\urine_mzml\\data\\40"
+cdfloc <- "C:\\Users\\473355\\Data\\urine_mzml\\data\\20"
 
 
 # Note: Feature table at each individual parameter setting (just like apLCMS)

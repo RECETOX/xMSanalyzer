@@ -261,7 +261,7 @@ xMSwrapper.apLCMS <- function(
       # 3) Calculate Percent Intensity Difference
 
       if (num_replicates > 1) {
-        feat.eval.result <- evaluate.Features(curdata, numreplicates = num_replicates, min.samp.percent = 0.6, alignment.tool = "apLCMS", impute.bool = TRUE)
+        feat.eval.result <- evaluate.Features(curdata, numreplicates = num_replicates, min_samp_percent = 0.6, alignment_tool = "apLCMS", impute = TRUE)
 
         cnames <- colnames(feat.eval.result)
         feat.eval.result <- apply(feat.eval.result, 2, as.numeric)
@@ -703,7 +703,7 @@ xMSwrapper.apLCMS <- function(
 
     tic.eval(d1[, -c(1:9)], outloc = subdir4a)
 
-    feat.eval.result <- evaluate.Features(d1[, -c(5:9)], numreplicates = num_replicates, min.samp.percent = 0.6, alignment.tool = "apLCMS", impute.bool = TRUE)
+    feat.eval.result <- evaluate.Features(d1[, -c(5:9)], numreplicates = num_replicates, min_samp_percent = 0.6, alignment_tool = "apLCMS", impute = TRUE)
     cnames <- colnames(feat.eval.result)
 
     Sys.sleep(1)
@@ -826,7 +826,7 @@ xMSwrapper.apLCMS <- function(
 
       # X<-t(adjdata2[maxint_ord[1:2000],-c(1:9)])
 
-      feat.eval.result <- evaluate.Features(adjdata2, numreplicates = num_replicates, min.samp.percent = 0.6, alignment.tool = "apLCMS", impute.bool = TRUE)
+      feat.eval.result <- evaluate.Features(adjdata2, numreplicates = num_replicates, min_samp_percent = 0.6, alignment_tool = "apLCMS", impute = TRUE)
 
 
       tic.eval(adjdata2[, -c(1:9)], outloc = subdir4b)
