@@ -1,9 +1,7 @@
-apLCMS.align <-
-  function(cdfloc, apLCMS.outloc, min.run.list = c(3, 3), min.pres.list = c(0.3, 0.8), minexp = 2, mztol = 0.00001, alignmztol = NA, alignchrtol = NA,
+apLCMS.align <-function(cdfloc, apLCMS.outloc, min.run.list = c(3, 3), min.pres.list = c(0.3, 0.8), minexp = 2, mztol = 0.00001, alignmztol = NA, alignchrtol = NA,
            numnodes = 2, run.order.file = NA, subs = NA, filepattern = ".cdf", apLCMSmode = "untargeted", known_table, match_tol_ppm = 5, ref.mz.list = NA, refMZ.mz.diff = 10, refMZ.time.diff = NA, target.mz.list = NA) {
     setwd(cdfloc)
     cdf.files <- list.files(cdfloc, filepattern, ignore.case = TRUE)
-    cdf.files <- tolower(cdf.files)
     dir.create(apLCMS.outloc, showWarnings = FALSE)
     aligned_data_list <- new("list")
     pcount <- 1
