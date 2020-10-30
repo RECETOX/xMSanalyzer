@@ -34,7 +34,7 @@ setup <- function(source_dir, path_to_data) {
     min.pres.list <<- c(0.5, 0.8)
     minexp.pct <<- 0.1
     mztol <<- 10e-4
-    alignmztol <<- 10e-5
+    alignmztol <<- 10e-4
     alignchrtol <<- 10
     numnodes <<- 8
     apLCMSmode <<- "untargeted"
