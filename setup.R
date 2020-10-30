@@ -13,8 +13,6 @@ setup <- function(source_dir, path_to_data) {
     library(apLCMS)
     library(xcms)
 
-    old_wd <- getwd()
-
     setwd(file.path(source_dir, "R"))
 
     files <- list.files(pattern = "*.R")
@@ -36,11 +34,7 @@ setup <- function(source_dir, path_to_data) {
     mztol <<- 10e-4
     alignmztol <<- 10e-4
     alignchrtol <<- 10
-<<<<<<< HEAD
     numnodes <<- parallel::detectCores()
-=======
-    numnodes <<- 8
->>>>>>> a1ce3cb16411450eb9c3d648b51b8ca6f4495e52
     apLCMSmode <<- "untargeted"
     known_table <<- NA
     match_tol_ppm <<- NA
@@ -69,46 +63,4 @@ setup <- function(source_dir, path_to_data) {
     replacezeroswithNA <<- TRUE
     charge_type <<- "pos"
     syssleep <<- 0.1
-<<<<<<< HEAD
-=======
-
-    force(cdfloc)
-    force(apLCMS.outloc)
-    force(xMSanalyzer.outloc)
-    force(min.run.list)
-    force(min.pres.list)
-    force(minexp.pct)
-    force(mztol)
-    force(alignmztol)
-    force(alignchrtol)
-    force(numnodes)
-    force(apLCMSmode)
-    force(known_table)
-    force(match_tol_ppm)
-    force(run.order.file)
-    force(max.mz.diff)
-    force(max.rt.diff)
-    force(merge.eval.pvalue)
-    force(mergecorthresh)
-    force(deltamzminmax.tol)
-    force(subs)
-    force(num_replicates)
-    force(mz.tolerance.dbmatch)
-    force(adduct.list)
-    force(samp.filt.thresh)
-    force(feat.filt.thresh)
-    force(cormethod)
-    force(mult.test.cor)
-    force(missingvalue)
-    force(ignore.missing)
-    force(filepattern)
-    force(sample_info_file)
-    force(refMZ)
-    force(refMZ.mz.diff)
-    force(refMZ.time.diff)
-    force(void.vol.timethresh)
-    force(replacezeroswithNA)
-    force(charge_type)
-    force(syssleep)
->>>>>>> a1ce3cb16411450eb9c3d648b51b8ca6f4495e52
 }
