@@ -2,6 +2,7 @@
 export(
     xMSwrapper,
     xMSwrapper.apLCMS,
+    xMSwrapper.apLCMS.Galaxy,
     xMSwrapper.XCMS.matchedFilter,
     feat.batch.annotation.KEGG,
     getVenn,
