@@ -60,9 +60,8 @@ apLCMS.align <- function(
           min_run = runval,
           mz_tol = mztol,
           align_mz_tol = alignmztol,
-          align_chr_tol = alignchrtol,
-          num
-        )
+          align_chr_tol = alignchrtol
+          )
 
         aligned$final.ftrs <- aligned$aligned_peaks
       } else {
