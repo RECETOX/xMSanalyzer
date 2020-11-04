@@ -1,9 +1,9 @@
 evaluate.Features <- function(
                               curdata,
                               numreplicates,
+                              min_samp_percent = 0.6,
                               alignment_tool,
                               impute,
-                              min_samp_percent = 0.6,
                               missingvalue = 0) {
   if (numreplicates == 2) {
     print("**calculating percent intensity difference**")

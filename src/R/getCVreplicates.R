@@ -1,16 +1,16 @@
 getCVreplicates <-
-function(curdata,alignment.tool,numreplicates, min.samp.percent=0.6,impute.bool=TRUE,missingvalue=0)
+function(curdata,alignment_tool,numreplicates, min_samp_percent=0.6,impute=TRUE,missingvalue=0)
 {
         mean_replicate_difference<-{}
         sd_range_duplicate_pairs<-{}
 	
-        if(alignment.tool=="apLCMS")
+        if(alignment_tool=="apLCMS")
         {
               col_end=4
         }
         else
         {
-              if(alignment.tool=="XCMS")
+              if(alignment_tool=="XCMS")
               {
                     col_end=8
               }
@@ -18,7 +18,7 @@ function(curdata,alignment.tool,numreplicates, min.samp.percent=0.6,impute.bool=
               {
 			  col_end=2
 		     print("**Using the first two columns as mz and retention time for PID calculation**")
-                    #stop(paste("Invalid value for alignment.tool. Please use either \"apLCMS\" or \"XCMS\"", sep=""))
+                    #stop(paste("Invalid value for alignment_tool. Please use either \"apLCMS\" or \"XCMS\"", sep=""))
               }
         }
         
@@ -31,13 +31,13 @@ function(curdata,alignment.tool,numreplicates, min.samp.percent=0.6,impute.bool=
         rnames<-colnames(curdata)
         rnames<-gsub(".cdf", "", rnames, ignore.case=TRUE)
 	quantcolnames=c("min", "first_quartile", "median", "mean", "third_quartile", "max","sampleCount")
-	if(impute.bool==TRUE)
+	if(impute==TRUE)
 	{
-		min.samp.percent=min.samp.percent
+		min_samp_percent=min_samp_percent
 	}
 	else
 	{
-		min.samp.percent=1
+		min_samp_percent=1
 	}
 
         
@@ -52,11 +52,11 @@ function(curdata,alignment.tool,numreplicates, min.samp.percent=0.6,impute.bool=
 		clusterExport(cl, "getCVreplicates.child") 
 		#clusterExport(cl, "numsamp")
 		#clusterExport(cl, "numreplicates")
-		#clusterExport(cl, "min.samp.percent")
-		#clusterExport(cl, "impute.bool")
-		#clusterExport(cl, "alignment.tool")
+		#clusterExport(cl, "min_samp_percent")
+		#clusterExport(cl, "impute")
+		#clusterExport(cl, "alignment_tool")
 		
-		cv.res<-parApply(cl,curdata,1,getCVreplicates.child,numsamp=numsamp,numreplicates=numreplicates,min.samp.percent=min.samp.percent,impute.bool=impute.bool,
+		cv.res<-parApply(cl,curdata,1,getCVreplicates.child,numsamp=numsamp,numreplicates=numreplicates,min_samp_percent=min_samp_percent,impute=impute,
 		missingvalue=missingvalue)
 		
 	dim(cv.res)=dim(matrix(nrow=7,ncol=numfeats))
@@ -81,10 +81,10 @@ function(curdata,alignment.tool,numreplicates, min.samp.percent=0.6,impute.bool=
 	#Qscore<-100*(final_set$numgoodsamples/(final_set$median*numsamp))
 
 	 mz_min_max<-cbind(curdata_mz_rt_info[,1],curdata_mz_rt_info[,1])	
-	if(alignment.tool=="apLCMS"){
+	if(alignment_tool=="apLCMS"){
 		mz_min_max<-cbind(curdata_mz_rt_info[,3],curdata_mz_rt_info[,4])
 	}else{
-		if(alignment.tool=="XCMS"){
+		if(alignment_tool=="XCMS"){
 			mz_min_max<-cbind(curdata_mz_rt_info[,2],curdata_mz_rt_info[,3])
 		}
 	}
