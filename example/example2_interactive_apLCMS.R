@@ -1,6 +1,6 @@
 source("xMSanalyzer/setup.R")
 
-data_path <- "C:\\Users\\473355\\Data\\urine_mzml\\data\\20"
+data_path <- "C:\\Users\\473355\\Data\\urine_mzml\\data\\40"
 source_path <- file.path(getwd(), "xMSanalyzer", "src")
 setup(source_path, data_path)
 
@@ -11,8 +11,8 @@ res.list <- xMSwrapper.apLCMS(
     min.run.list = c(4, 3),
     min.pres.list = c(0.5, 0.8),
     minexp.pct = 0.1,
-    mztol = 10e-4,
-    alignmztol = 10e-4,
+    mztol = 10e-5,
+    alignmztol = 10e-5,
     alignchrtol = 10,
     numnodes = parallel::detectCores(),
     apLCMSmode = "untargeted",
