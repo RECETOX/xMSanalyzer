@@ -1,5 +1,5 @@
 getCVreplicates.child <-
-function(curdata,numsamp,numreplicates,min.samp.percent,impute.bool,missingvalue)
+function(curdata,numsamp,numreplicates,min_samp_percent,impute,missingvalue)
 {
 	
 			newrow={}
@@ -22,7 +22,7 @@ function(curdata,numsamp,numreplicates,min.samp.percent,impute.bool,missingvalue
 						}
 				#check_zeros=which(curdata_int==0)
 				
-				na_thresh=round(min.samp.percent*numreplicates)
+				na_thresh=round(min_samp_percent*numreplicates)
 				
 			
 					if(length(check_zeros)>=na_thresh)
@@ -38,7 +38,7 @@ function(curdata,numsamp,numreplicates,min.samp.percent,impute.bool,missingvalue
 						#temporarily replace the missing intensities, set to 0 in apLCMS,
 						#with mean intensity value of the corresponding replicates (with non-zero values)
 						if(length(check_zeros)>0){
-						if(impute.bool==TRUE){
+						if(impute==TRUE){
 							curdata_int[check_zeros]=mean(t(curdata_int[-c(check_zeros)]))
 						}
 						}

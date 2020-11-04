@@ -60,35 +60,15 @@ apLCMS.align <- function(
           min_run = runval,
           mz_tol = mztol,
           align_mz_tol = alignmztol,
-          align_chr_tol = alignchrtol,
-          num
-        )
+          align_chr_tol = alignchrtol
+          )
 
         aligned$final.ftrs <- aligned$aligned_peaks
-
-
-        # aligned <- cdf.to.ftr(
-        #   cdfloc,
-        #   subs = subs,
-        #   min.exp = minexp,
-        #   min.run = runval,
-        #   min.pres = presval,
-        #   mz.tol = mztol,
-        #   align.mz.tol = alignmztol,
-        #   align.chr.tol = alignchrtol,
-        #   n.nodes = numnodes,
-        #   file.pattern = filepattern
-        # )
       } else {
         if (apLCMSmode == "hybrid") {
           aligned <- semi.sup(folder = cdfloc, known.table = known_table, match.tol.ppm = match_tol_ppm, subs = subs, min.exp = minexp, min.run = runval, min.pres = presval, mz.tol = mztol, align.mz.tol = alignmztol, align.chr.tol = alignchrtol, n.nodes = numnodes, file.pattern = filepattern)
         }
       }
-
-
-
-
-
 
       dev.off()
       finalfeatmat <- aligned$final.ftrs

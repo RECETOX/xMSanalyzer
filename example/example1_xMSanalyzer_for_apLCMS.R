@@ -1,4 +1,3 @@
-
 library(xMSanalyzer)
 # please see the manual for description of functions and parameters
 
@@ -10,48 +9,25 @@ data(example_target_list_neg)
 # Note: set cdfloc=NA if the cdf files are already aligned using apLCMS and the results
 # exist in apLCMS.outloc
 
-cdfloc <- "C:\\Users\\473355\\Data\\urine_mzml\\data\\20"
+cdfloc <- "/data"
 
 
 # Note: Feature table at each individual parameter setting (just like apLCMS)
 # 2) apLCMS.outloc: The folder where alignment output will be written. For example "C:/CDFoutput/"
 
-apLCMS_outloc <- "C:\\Users\\473355\\Data\\apLCMS_out"
+apLCMS_outloc <- "/data/apLCMS_out"
 
 
 # Note: Merged feature table (like apLCMS, but with feature quality summary)
 # 3) xMSanalyzer.outloc: The folder where xMSanalyzer output will be written. For example "C:/xMSanalyzeroutput/"
-xMSanalyzer_outloc <- "C:\\Users\\473355\\Data\\xmsAnalyzer_out"
-
-
+xMSanalyzer_outloc <- "/data/xmsAnalyzer_out"
 
 dir.create(apLCMS_outloc, showWarnings=FALSE)
 dir.create(xMSanalyzer_outloc, showWarnings=FALSE)
 
-# 4) Sequence file path; Need for batch-effect evaluation; eg: "C:/Documents/Projects/pos/sequence_file_pos.txt"
-# Column A: Names matching .cdf or .mzXML files
-# Column B: Sample ID/name
-# Column C: Batch (column should be labeled "Batch")
-
-sample_info_file<-NA #"/Users/Documents/Projects/sequence_file_pos.txt"
- 
-#5) reference chemicals; use NA for the example_target_list provided with the package
-# eg:"C:/Documents/Emory/JonesLab/Projects/xMSanalyzer/valid_chem_mz.txt"
-reference_chemicals_file<-NA #"/Users/Documents/Projects/xMSanalyzer/pos_mode_target_mz_list_M+H.txt"
-
-
-#6) Ionization mode: use "pos" for positive; use "neg" for negative
-charge_type="pos"
-
-#########################################END of Input parameters##########################################################
-
-# 7) Other parameters
-num_nodes <- 8
-num_replicates <- 2
-
 ######## xMSanalyzer usage##################
 
-
+options(error = function() traceback(3))
 result <- try({
       par(mfrow = c(2, 2))
       pdf("Rplots.pdf")
@@ -62,10 +38,10 @@ result <- try({
             min.run.list = c(4, 3),
             min.pres.list = c(0.5, 0.8),
             minexp.pct = 0.1,
-            mztol = 10e-4,
+            mztol = 10e-5,
             alignmztol = 10e-5,
             alignchrtol = 10,
-            numnodes = num_nodes,
+            numnodes = parallel::detectCores(),
             apLCMSmode = "untargeted",
             known_table = NA,
             match_tol_ppm = NA,
@@ -76,7 +52,7 @@ result <- try({
             mergecorthresh = 0.7,
             deltamzminmax.tol = 30,
             subs = NA,
-            num_replicates = num_replicates,
+            num_replicates = 3,
             mz.tolerance.dbmatch = 10,
             adduct.list = NA,
             samp.filt.thresh = 0.1,
@@ -86,13 +62,13 @@ result <- try({
             missingvalue = 0,
             ignore.missing = TRUE,
             filepattern = ".mzML",
-            sample_info_file = sample_info_file,
-            refMZ = reference_chemicals_file,
+            sample_info_file = NA,
+            refMZ = NA,
             refMZ.mz.diff = 10,
             refMZ.time.diff = NA,
             void.vol.timethresh = 30,
             replacezeroswithNA = TRUE,
-            charge_type = charge_type,
+            charge_type = "pos",
             syssleep = 0.1
       )
 
