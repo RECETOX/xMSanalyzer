@@ -90,6 +90,11 @@ getPID <- function(
   })
 
   maxint <- log(maxint, 10)
+  
+  rnames <- colnames(curdata)
+  rnames <- gsub(".cdf", "", rnames, ignore.case = TRUE)
+  quantcolnames <- c("min", "first_quartile", "median", "mean", "third_quartile", "max")
+
   resvec_1 <- lapply(1:numfeats, function(r) {
     do_something(r, numsamp, curdata, missingvalue)
   })
