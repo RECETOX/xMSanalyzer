@@ -1,4 +1,4 @@
-FROM hechth/xmsanalyzer-deps:latest
+FROM recetox/xmsanalyzer:2.0.6.1-deps
 
 ADD /src /xMSanalyzer
 
