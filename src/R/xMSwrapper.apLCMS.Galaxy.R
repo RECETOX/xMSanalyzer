@@ -6,13 +6,13 @@ xMSwrapper.apLCMS.Galaxy <- function(files) {
     data(example_target_list_neg)
 
 
-    cdfloc <- "/data"
+    cdfloc <- "/tmp"
     apLCMS_outloc <- file.path(cdfloc, "apLCMS_out")
     xMSanalyzer_outloc <- file.path(cdfloc, "xmsAnalyzer_out")
 
     dir.create(cdfloc)
 
-    sapply(files, function(name) {
+    lapply(files, function(name) {
         file.copy(name, cdfloc)
     })
 
