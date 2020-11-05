@@ -1,11 +1,4 @@
 xMSwrapper.apLCMS.Galaxy <- function(files) {
-    library(xMSanalyzer)
-
-    # Load required ata
-    data(example_target_list_pos)
-    data(example_target_list_neg)
-
-
     cdfloc <- tempdir()
     apLCMS_outloc <- file.path(cdfloc, "apLCMS_out")
     xMSanalyzer_outloc <- file.path(cdfloc, "xmsAnalyzer_out")
@@ -16,12 +9,15 @@ xMSwrapper.apLCMS.Galaxy <- function(files) {
         file.copy(name, cdfloc)
     })
 
+    library(xMSanalyzer)
+
+    data(example_target_list_pos)
+    data(example_target_list_neg)
+
     ######## xMSanalyzer usage##################
 
     options(error = function() traceback(3))
-    result <- try({
-        par(mfrow = c(2, 2))
-        pdf("Rplots.pdf")
+    result <- try({       
         res.list <- xMSwrapper.apLCMS(
             cdfloc = cdfloc,
             apLCMS.outloc = apLCMS_outloc,
@@ -63,9 +59,7 @@ xMSwrapper.apLCMS.Galaxy <- function(files) {
             syssleep = 0.1
         )
 
-        dev.off()
-        setwd(xMSanalyzer_outloc)
-        save(res.list, file = "xMSwrapper_apLCMS.Rda")
         return(res.list)
     })
+    return(result)
 }
