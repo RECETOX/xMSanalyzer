@@ -6,7 +6,7 @@ xMSwrapper.apLCMS.Galaxy <- function(files) {
     data(example_target_list_neg)
 
 
-    cdfloc <- "/tmp"
+    cdfloc <- tempdir()
     apLCMS_outloc <- file.path(cdfloc, "apLCMS_out")
     xMSanalyzer_outloc <- file.path(cdfloc, "xmsAnalyzer_out")
 
@@ -39,11 +39,11 @@ xMSwrapper.apLCMS.Galaxy <- function(files) {
             run.order.file = NA,
             max.mz.diff = 15,
             max.rt.diff = 300,
-            merge.eval.pvalue = 0.05,
+            merge.eval.pvalue = 0.4,
             mergecorthresh = 0.7,
             deltamzminmax.tol = 30,
             subs = NA,
-            num_replicates = 2,
+            num_replicates = 3,
             mz.tolerance.dbmatch = 10,
             adduct.list = NA,
             samp.filt.thresh = 0.1,
@@ -55,7 +55,7 @@ xMSwrapper.apLCMS.Galaxy <- function(files) {
             filepattern = ".mzML",
             sample_info_file = NA,
             refMZ = NA,
-            refMZ.mz.diff = 10,
+            refMZ.mz.diff = NA,
             refMZ.time.diff = NA,
             void.vol.timethresh = 30,
             replacezeroswithNA = TRUE,
@@ -66,5 +66,6 @@ xMSwrapper.apLCMS.Galaxy <- function(files) {
         dev.off()
         setwd(xMSanalyzer_outloc)
         save(res.list, file = "xMSwrapper_apLCMS.Rda")
+        return(res.list)
     })
 }
