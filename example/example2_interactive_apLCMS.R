@@ -1,7 +1,7 @@
-source("xMSanalyzer/setup.R")
+source("setup.R")
 
-data_path <- "C:\\Users\\473355\\Data\\urine_mzml\\data\\40"
-source_path <- file.path(getwd(), "xMSanalyzer", "src")
+data_path <- "C:\\Users\\473355\\Data\\urine_mzml\\data\\20"
+source_path <- file.path(getwd(), "src")
 setup(source_path, data_path)
 
 res.list <- xMSwrapper.apLCMS(

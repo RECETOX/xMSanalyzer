@@ -463,9 +463,19 @@ xMSwrapper.apLCMS <- function(
             print(paste("Number of good quality features from setting ", j, ":", dim(data_rpd[[j]])[1], sep = ": "))
           }
 
-          data_m <- merge.Results(data_rpd[[i]], data_rpd[[j]], feat.eval.A, feat.eval.B, max.mz.diff, max.rt.diff, merge.eval.pvalue,
+          data_m <- merge.Results(
+            data_rpd[[i]],
+            data_rpd[[j]],
+            feat.eval.A,
+            feat.eval.B,
+            max.mz.diff,
+            max.rt.diff,
+            merge.eval.pvalue,
             alignment.tool = "apLCMS",
-            numnodes = numnodes, mult.test.cor, mergecorthresh, missingvalue
+            numnodes = numnodes,
+            mult.test.cor,
+            mergecorthresh,
+            missingvalue
           )
 
           numcols <- dim(data_m)[2]
@@ -862,7 +872,14 @@ xMSwrapper.apLCMS <- function(
       print("*********Stage 5: Mapping m/z values to known metabolites using KEGG*********")
       cat("\n")
 
-      annot.res <- feat.batch.annotation.KEGG(adjdata2, mz.tolerance.dbmatch, adduct.list, subdir5, numnodes = numnodes, syssleep = syssleep)
+      annot.res <- feat.batch.annotation.KEGG(
+        adjdata2,
+        mz.tolerance.dbmatch,
+        adduct.list,
+        subdir5,
+        numnodes = numnodes,
+        syssleep = syssleep
+      )
       annotres_list <- annot.res
       s5 <- "Stage 5 results: Annotation of features"
       sm <- rbind(sm, s5)
